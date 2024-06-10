@@ -112,13 +112,6 @@ int main(void) {
 
 
         //Physics on first ball
-
-
-        const float initialVelocity = 0.0f;
-        float acceleration = 0.2f;
-        float time = 2.0f;
-
-
         //Affecting ball on key press
         if(spawnedBallCount > 0 && IsKeyPressed(KEY_P)){
             printf("<- Key Pressed -> ");
