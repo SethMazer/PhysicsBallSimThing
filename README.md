@@ -19,8 +19,4 @@ started working on the main project and its just not ready to overtake the pin.
 Yes I am aware that the ball only gets thrown in one direction relative to the camera, in fact in order to get the gif for below, 
 I had to spawn the ball then walk around to the side to capture the throw, since yk, it only works in one direction
 
-# Demo 
 
-![](https://github.com/SethMazer/PhysicsBallSimThing/blob/main/Ball%20Demo.gif)
-
-Why does it look choppy? Idk the recording software Ig, and the text isnt in world, its just edited on
