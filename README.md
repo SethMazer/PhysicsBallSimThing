@@ -11,10 +11,16 @@ the laws of physics.
 
 Most likely not, If it is, it would be used as a testing world, for another project. I simply
 wanted to see if I could add 3D graphics, and physics to a world and I did, so that's really it
-for this thing.
+for this thing. If its still pinned its probably because A. Its the latest I've done in "3D coding" or B. I've 
+started working on the main project and its just not ready to overtake the pin.
 
-# Why did you post it then?
+# Are you aware that it only works in "one direction"
 
-Idk I just wanted to post it to show the few people who sees this what my first intro to 3d space was in coding
+Yes I am aware that the ball only gets thrown in one direction relative to the camera, in fact in order to get the gif for below, 
+I had to spawn the ball then walk around to the side to capture the throw, since yk, it only works in one direction
 
-If its still pinned its probably because A. Its the latest I've done in "3D coding" or B. I've started working on the main project and its just not ready to overtake the pin.
+# Demo 
+
+![](https://github.com/SethMazer/PhysicsBallSimThing/blob/main/Ball%20Demo.gif)
+
+Why does it look choppy? Idk the recording software Ig, and the text isnt in world, its just edited on
