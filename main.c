@@ -28,6 +28,7 @@ spawnedBall createBall(Vector3 cameraPosition){
     //then removing 1 from the z, so it spawns in front of user
     ball.position = cameraPosition;
     ball.position.z -= 3.0f;
+    ball.position.y -= 0.75f;
     //Ball rad and colors
     ball.radius = 0.25f;
     ball.color = LIME;
@@ -75,13 +76,16 @@ int main(void) {
     //Main game loop
     while(!WindowShouldClose()){
 
+        //--------------------------
+        // Camera
+        //--------------------------
 
         //Updating camera view/pos/etc
         UpdateCamera(&camera, cameraMode);
         //Printing camera data to terminal
         //If any camera coord isn't equal to the previous camera coord then print new camera data, this is so there isn't constant camera coord spam from just printing coords on a loop
         if((camera.position.x != prevCameraPosition.x) || (camera.position.y != prevCameraPosition.y) || (camera.position.z != prevCameraPosition.z) ){
-            printf("X = %f | Y = %f | Z = %f", camera.position.x, camera.position.y,
+            printf("| X = %f | Y = %f | Z = %f ", camera.position.x, camera.position.y,
                    camera.position.z);
             prevCameraPosition = camera.position;
 
@@ -110,8 +114,6 @@ int main(void) {
 
 
 
-
-        //Physics on first ball
         //Affecting ball on key press
         if(spawnedBallCount > 0 && IsKeyPressed(KEY_P)){
             printf("<- Key Pressed -> ");
@@ -125,7 +127,9 @@ int main(void) {
 
         }
 
-
+    //-------------------------
+    //Ball Physics
+    //--------------------------
 
     //Loop
     for(int i = 0; i < spawnedBallCount; i++){
@@ -139,8 +143,18 @@ int main(void) {
             spawnedBalls[i].position.z += spawnedBalls[i].velocityZ * GetFrameTime();
 
 
+        }
+
+        //If a spawned ball touches the Y level of 0.25f, stop the throw, essentially the ball is hitting the floor again
+        if(spawnedBalls[i].position.y <= -0.75f){
+
+            //Stop balls position at the floor, stop throw
+            spawnedBalls[i].position.y = -0.75f;
+            spawnedBalls[i].isThrown = false;
+
 
         }
+
 
 
 
@@ -148,19 +162,25 @@ int main(void) {
 
 
 
-
-
+        //----------------------------------
+        // Drawing
+        //----------------------------------
 
 
         //Beginning
         BeginDrawing();
         BeginMode3D(camera);
 
+        //Plane
+        DrawPlane((Vector3){0.0f, -1.0f, 0.0f}, (Vector2){250.0f, 250.0f}, RED);
+
+
 
         //Draw all balls that were stored in spawnedBalls
         for(int i = 0; i < spawnedBallCount; i++){
             DrawSphere(spawnedBalls[i].position, spawnedBalls[i].radius, spawnedBalls[i].color);
             };
+
 
 
         //Ending
